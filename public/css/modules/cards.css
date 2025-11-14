@@ -1,0 +1,68 @@
+/* Components - Карточки продуктов */
+.product-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-image {
+  width: 100%;
+  border-radius: var(--border-radius);
+  background: #f2f4f7;
+}
+
+.product-title {
+  margin: 2px 0 0;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.product-title a {
+  color: #222;
+  text-decoration: none;
+}
+
+.product-title a:hover {
+  text-decoration: underline;
+}
+
+.product-price {
+  margin: 0;
+  font-weight: 600;
+  color: #0a7a2f;
+}
+
+.product-description {
+  margin-bottom: 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.buy-button {
+  display: block;
+  margin-top: auto;
+  align-self: start;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  background: #0a58ca;
+  color: var(--bg-white);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.buy-button:hover {
+  background: #084298;
+}
+
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

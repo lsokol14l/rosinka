@@ -1,0 +1,8 @@
+/* Catalog Page - Страница каталога */
+
+.catalog-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 12px 0 32px;
+}

@@ -1,0 +1,27 @@
+/* Base Styles - Базовые стили */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg-body);
+  padding-top: calc(var(--header-height) + 1px);
+}
+
+.site-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 20px;
+  box-sizing: border-box;
+}

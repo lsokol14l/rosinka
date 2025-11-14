@@ -1,0 +1,9 @@
+/* Footer Styles - Стили подвала сайта */
+footer {
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-color);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
