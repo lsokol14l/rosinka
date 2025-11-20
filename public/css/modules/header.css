@@ -41,15 +41,29 @@ header {
   color: #007bff;
 }
 
+/* Стили для иконок соцсетей */
 .header-icons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
-.header-icons a {
+.icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  color: #555;
-  font-size: 18px;
-  font-weight: bold;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+
+.icon-link:hover {
+  transform: scale(1.1);
+}
+
+.social-icon {
+  width: 24px; /* Размер иконки */
+  height: 24px;
+  object-fit: contain;
+  display: block;
 }

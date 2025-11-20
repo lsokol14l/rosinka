@@ -1,9 +1,113 @@
-/* Footer Styles - Стили подвала сайта */
 footer {
-  background: var(--bg-white);
-  border-top: 1px solid var(--border-color);
-  padding: 20px 0;
+  background: linear-gradient(135deg, #004e8c 0%, #002a4d 100%);
+  color: #ffffff;
+  padding-top: 3rem;
+  margin-top: auto;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #45befb;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+/* Декоративная линия под заголовком */
+.footer-column h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 40%; /* Начальная ширина 0 */
+  height: 2px;
+  background-color: #45befb;
+  transition: width 0.3s ease; /* Плавное появление */
+}
+
+.footer-column h3:hover::after {
+  width: 100%; /* При наведении растягивается */
+  box-shadow: 0 0 10px #45befb, 0 0 20px #45befb;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.8rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* Стили для ссылок внутри списков */
+.footer-column ul li a {
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
+}
+
+.footer-column ul li a:hover {
+  color: #45befb;
+  padding-left: 5px;
+  text-shadow: 0 0 10px rgba(69, 190, 251, 0.5);
+}
+
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2);
   text-align: center;
-  font-size: 14px;
-  color: var(--text-secondary);
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #8ab4d4;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+
+  .footer-column h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }

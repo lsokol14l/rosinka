@@ -109,6 +109,10 @@
   font-size: 15px;
 }
 
+section {
+  border-radius: 24px;
+}
+
 /* Products Section */
 .products-section {
   padding: 60px 0;
