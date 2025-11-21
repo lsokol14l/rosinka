@@ -48,283 +48,33 @@
     </div>
 
     <div class="products-grid">
-      <!-- Сокосодержащие напитки -->
-      <article class="product-card" data-product-name="фрутмотив киви фейхоа">
-        <div class="product-link-wrapper">
-          <a class="product-link" href="/product/kiwi-feijoa">
-            <img
-              src="/assets/cards/6855163dc9935a82f345b7a8_Рендер киви фейхоа (1).webp"
-              alt="Фрутмотив Киви Фейхоа"
-              class="product-image"
-              width="280"
-              height="320"
-            />
-          </a>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">
-            <a href="/product/kiwi-feijoa">Фрутмотив "Киви фейхоа" 1.5 л</a>
-          </h3>
-          <p class="product-description">
-            Откройте для себя...
-          </p>
-          <div class="product-footer">
-            <p class="product-price">100 ₽</p>
-            <a href="/product/kiwi-feijoa" class="buy-button">Подробнее</a>
+      {{#each products}}
+        <article class="product-card" data-product-name="{{slug}}">
+          <div class="product-link-wrapper">
+            <a class="product-link" href="/product/{{slug}}">
+              <img
+                src="{{img}}"
+                alt="{{alt}}"
+                class="product-image"
+                width="280"
+                height="320"
+              />
+            </a>
           </div>
-        </div>
-      </article>
-
-      <article class="product-card" data-product-name="фрутмотив лимон сорбет">
-        <div class="product-link-wrapper">
-          <a class="product-link" href="/product/lemon-sorbet">
-            <img
-              src="/assets/cards/685513660e79cf3d949c27a7_Рендер Лимон сорбет (1).webp"
-              alt="Фрутмотив Лимон сорбет"
-              class="product-image"
-              width="280"
-              height="320"
-            />
-          </a>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">
-            <a href="/product/lemon-sorbet">Фрутмотив "Лимон сорбет" 1.5 л</a>
-          </h3>
-          <p class="product-description">
-            Побалуйте себя освежающей...
-          </p>
-          <div class="product-footer">
-            <p class="product-price">100 ₽</p>
-            <a href="/product/lemon-sorbet" class="buy-button">Подробнее</a>
+          <div class="product-info">
+            <h3 class="product-title">
+              <a href="/product/{{slug}}">{{name}}</a>
+            </h3>
+            <p class="product-description">
+              {{description}}
+            </p>
+            <div class="product-footer">
+              <p class="product-price">{{price}} ₽</p>
+              <a href="/product/{{slug}}" class="buy-button">Подробнее</a>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <article class="product-card" data-product-name="фрутмотив апельсин">
-        <div class="product-link-wrapper">
-          <a class="product-link" href="/product/orange">
-            <img
-              src="/assets/cards/6855100cb4dd419336061991_Апельсин_1и5л.webp"
-              alt="Фрутмотив Апельсин"
-              class="product-image"
-              width="280"
-              height="320"
-            />
-          </a>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">
-            <a href="/product/orange">Фрутмотив «Апельсин»</a>
-          </h3>
-          <p class="product-description">
-            Яркий, солнечный, нежный...
-          </p>
-          <div class="product-footer">
-            <p class="product-price">100 ₽</p>
-            <a href="/product/orange" class="buy-button">Подробнее</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Холодный чай -->
-      <article
-        class="product-card"
-        data-product-name="фрутмотив icetea манго-ананас"
-      >
-        <div class="product-link-wrapper">
-          <a class="product-link" href="/product/icetea-mango-pineapple">
-            <img
-              src="/assets/cards/66deabbc035e08338ea00f93_чай_манго 1,5.webp"
-              alt="Фрутмотив IceTea Манго-ананас"
-              class="product-image"
-              width="280"
-              height="320"
-            />
-          </a>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">
-            <a href="/product/icetea-mango-pineapple">Фрутмотив IceTea
-              «Манго-ананас»</a>
-          </h3>
-          <p class="product-description">
-            Яркая летняя новинка! Сладкий романтичный ароматный манго в
-            сочетании с дерзким свежим ананасом доставят истинное наслаждение в
-            любой день. Просто закройте глаза, попробуйте и почувствуйте себя на
-            жаркой вечеринке на берегу моря.
-          </p>
-          <div class="product-footer">
-            <p class="product-price">100 ₽</p>
-            <a
-              href="/product/icetea-mango-pineapple"
-              class="buy-button"
-            >Подробнее</a>
-          </div>
-        </div>
-      </article>
-
-      <article
-        class="product-card"
-        data-product-name="фрутмотив icetea лесные ягоды"
-      >
-        <div class="product-link-wrapper">
-          <a class="product-link" href="/product/icetea-forest-berries">
-            <img
-              src="/assets/cards/66deac2e04e529dab715923b_чай_ягоды 1,5.webp"
-              alt="Фрутмотив IceTea Лесные ягоды"
-              class="product-image"
-              width="280"
-              height="320"
-            />
-          </a>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">
-            <a href="/product/icetea-forest-berries">Фрутмотив IceTea «Лесные
-              ягоды»</a>
-          </h3>
-          <p class="product-description">
-            Один глоток этого ароматного холодного чая перенесет вас в погожие
-            деньки.<br />
-            Мы сохранили лето в бутылке! Оказалось, что нужно только добавить к
-            натуральному чёрному чаю яркие ноты клубники, малины и черники,
-            охладить — и можно ежедневно вспоминать тёплые деньки за городом.
-          </p>
-          <div class="product-footer">
-            <p class="product-price">100 ₽</p>
-            <a
-              href="/product/icetea-forest-berries"
-              class="buy-button"
-            >Подробнее</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="product-card" data-product-name="фрутмотив icetea лимон">
-        <div class="product-link-wrapper">
-          <a class="product-link" href="/product/icetea-lemon">
-            <img
-              src="/assets/cards/66deac04ad046337efdfa307_чай_лимон 1,5.webp"
-              alt="Фрутмотив IceTea Лимон"
-              class="product-image"
-              width="280"
-              height="320"
-            />
-          </a>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">
-            <a href="/product/icetea-lemon">Фрутмотив IceTea «Лимон»</a>
-          </h3>
-          <p class="product-description">
-            Чёрный холодный чай и лимон — это идеальное сочетание. Классический
-            вкус, равных которому нет. В жаркий день он утолит жажду, а в холод
-            напомнит о лете и придаст сил.
-          </p>
-          <div class="product-footer">
-            <p class="product-price">100 ₽</p>
-            <a href="/product/icetea-lemon" class="buy-button">Подробнее</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Минеральная вода -->
-      <article
-        class="product-card"
-        data-product-name="росинка ароматизированная малина"
-      >
-        <div class="product-link-wrapper">
-          <a class="product-link" href="/product/mineral-raspberry">
-            <img
-              src="/assets/cards/6855400757edc931633c2b9c_питьевая 15 малина.png"
-              alt="Росинка ароматизированная не газированная со вкусом малины"
-              class="product-image"
-              width="280"
-              height="320"
-            />
-          </a>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">
-            <a href="/product/mineral-raspberry">Росинка «ароматизированная не
-              газированная» со вкусом малины</a>
-          </h3>
-          <p class="product-description">
-            Ароматизированная негазированная вода со вкусом малины
-          </p>
-          <div class="product-footer">
-            <p class="product-price">100 ₽</p>
-            <a
-              href="/product/mineral-raspberry"
-              class="buy-button"
-            >Подробнее</a>
-          </div>
-        </div>
-      </article>
-
-      <article
-        class="product-card"
-        data-product-name="росинка ароматизированная лимон"
-      >
-        <div class="product-link-wrapper">
-          <a class="product-link" href="/product/mineral-lemon">
-            <img
-              src="/assets/cards/68553cb64c874674407a7ccb_питьевая 15 лимон.webp"
-              alt="Росинка ароматизированная не газированная со вкусом лимона"
-              class="product-image"
-              width="280"
-              height="320"
-            />
-          </a>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">
-            <a href="/product/mineral-lemon">Росинка «ароматизированная не
-              газированная» со вкусом лимона</a>
-          </h3>
-          <p class="product-description">
-            Ароматизированная негазированная вода со вкусом лимона
-          </p>
-          <div class="product-footer">
-            <p class="product-price">100 ₽</p>
-            <a href="/product/mineral-lemon" class="buy-button">Подробнее</a>
-          </div>
-        </div>
-      </article>
-
-      <article
-        class="product-card"
-        data-product-name="росинка ароматизированная клубника"
-      >
-        <div class="product-link-wrapper">
-          <a class="product-link" href="/product/mineral-strawberry">
-            <img
-              src="/assets/cards/68553a594c874674407902c4_питьевая 15 клубника.webp"
-              alt="Росинка ароматизированная не газированная со вкусом клубники"
-              class="product-image"
-              width="280"
-              height="320"
-            />
-          </a>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">
-            <a href="/product/mineral-strawberry">Росинка «ароматизированная не
-              газированная» со вкусом клубники</a>
-          </h3>
-          <p class="product-description">
-            Ароматизированная негазированная вода со вкусом клубники
-          </p>
-          <div class="product-footer">
-            <p class="product-price">100 ₽</p>
-            <a
-              href="/product/mineral-strawberry"
-              class="buy-button"
-            >Подробнее</a>
-          </div>
-        </div>
-      </article>
+        </article>
+      {{/each}}
     </div>
   </section>
 </div>

@@ -1,39 +1,38 @@
-const express = require('express');
-const path = require('path');
-const hbs = require('hbs');
+const express = require("express");
+const path = require("path");
+const hbs = require("hbs");
 
 const app = express();
 
 const port = parseInt(process.env.PORT) || process.argv[3] || 8080;
 
 // View engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-hbs.registerPartials(path.join(__dirname, 'views/layouts'));
-app.set('view options', { layout: 'layouts/main' });
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
+hbs.registerPartials(path.join(__dirname, "views/layouts"));
+app.set("view options", { layout: "layouts/main" });
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-app.use('/js', express.static(path.join(__dirname, 'public/js')));
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.use("/js", express.static(path.join(__dirname, "public/js")));
 
-app.get('/', (req, res) => {
-  res.render('index', { layout: 'layouts/main' });
+app.get("/", (req, res) => {
+  res.render("index", { layout: "layouts/main" });
 });
 
-app.get('/about', (req, res) => {
-  res.render('about', { layout: 'layouts/main' });
+app.get("/about", (req, res) => {
+  res.render("about", { layout: "layouts/main" });
 });
 
-app.get('/catalog', (req, res) => {
-  res.render('catalog', { layout: 'layouts/main', isCatalog: true });
+const catalogRoutes = require("./routes/catalog");
+app.use("/", catalogRoutes);
+
+app.get("/contacts", (req, res) => {
+  res.render("contacts", { layout: "layouts/main" });
 });
 
-app.get('/contacts', (req, res) => {
-  res.render('contacts', { layout: 'layouts/main' });
-});
-
-app.get('/api', (req, res) => {
-  res.json({"msg": "Hello world"});
+app.get("/api", (req, res) => {
+  res.json({ msg: "Hello world" });
 });
 
 app.listen(port, () => {
