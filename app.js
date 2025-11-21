@@ -31,6 +31,10 @@ app.get("/contacts", (req, res) => {
   res.render("contacts", { layout: "layouts/main" });
 });
 
+app.get("/privacy", (req, res) => {
+  res.render("privacy", { layout: "layouts/main" });
+});
+
 app.get("/api", (req, res) => {
   res.json({ msg: "Hello world" });
 });
