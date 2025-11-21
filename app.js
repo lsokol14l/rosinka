@@ -14,6 +14,7 @@ app.set('view options', { layout: 'layouts/main' });
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/js', express.static(path.join(__dirname, 'public/js')));
 
 app.get('/', (req, res) => {
   res.render('index', { layout: 'layouts/main' });
@@ -24,7 +25,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/catalog', (req, res) => {
-  res.render('catalog', { layout: 'layouts/main' });
+  res.render('catalog', { layout: 'layouts/main', isCatalog: true });
 });
 
 app.get('/contacts', (req, res) => {

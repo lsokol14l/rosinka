@@ -1,155 +1,214 @@
-<h2 id="about" class="content-title">Каталог</h2>
-
-<div class="catalog-grid">
-  <article class="product-card">
-    <header>
-      <a class="product-link" href="/product-water-still">
-        <img
-          src="/assets/drink-card1.png"
-          alt="Вода «Росинка» негазированная"
-          class="product-image"
-        />
+<div class="catalog-page">
+  <!-- Sidebar с категориями -->
+  <aside class="catalog-sidebar">
+    <h2 class="sidebar-title">Категории</h2>
+    <nav class="categories-nav">
+      <a href="/catalog" class="category-nav-item active">
+        Все товары
       </a>
-      <h3 class="product-title">
-        <div></div>
-        <a href="/product-water-still"
-          >«Росинка» негазированная</a
-        >
-      </h3>
-    </header>
-    <footer class="card-footer">
-      <p class="product-price">от 39 ₽</p>
-      <p class="product-description">
-        Чистая питьевая вода без газа, многоступенчатая фильтрация.
-      </p>
-      <a href="/product-water-still" class="buy-button"
-        >Подробнее</a
-      >
-    </footer>
-  </article>
-
-  <article class="product-card">
-    <header>
-      <a class="product-link" href="/product-water-sparkling">
-        <img
-          src="/assets/drink-card2.png"
-          alt="Вода «Росинка» газированная"
-          class="product-image"
-        />
+      <a href="/catalog/mineral-water" class="category-nav-item">
+        Минеральная вода
       </a>
-      <h3 class="product-title">
-        <a href="/product-water-sparkling"
-          >«Росинка» газированная</a
-        >
-      </h3>
-    </header>
-    <footer class="card-footer">
-      <p class="product-price">от 39 ₽</p>
-      <p class="product-description">
-        Освежающая газированная вода с сбалансированной
-        минерализацией.
-      </p>
-      <a href="/product-water-sparkling" class="buy-button"
-        >Подробнее</a
-      >
-    </footer>
-  </article>
-
-  <article class="product-card">
-    <header>
-      <a class="product-link" href="/product-mors-cranberry">
-        <img
-          src="/assets/drink-card3.png"
-          alt="Морс клюквенный"
-          class="product-image"
-        />
+      <a href="/catalog/cold-tea" class="category-nav-item">
+        Холодный чай
       </a>
-      <h3 class="product-title">
-        <a href="/product-mors-cranberry">Морс клюквенный</a>
-      </h3>
-    </header>
-    <footer class="card-footer">
-      <p class="product-price">от 69 ₽</p>
-      <p class="product-description">
-        Из натурального ягодного сока, без искусственных красителей.
-      </p>
-      <a href="/product-mors-cranberry" class="buy-button"
-        >Подробнее</a
-      >
-    </footer>
-  </article>
-
-  <article class="product-card">
-    <header>
-      <a class="product-link" href="/product-mors-lingonberry">
-        <img
-          src="/assets/drink-card1.png"
-          alt="Морс брусничный"
-          class="product-image"
-        />
+      <a href="/catalog/water-with-juice" class="category-nav-item">
+        Минеральная вода с соком
       </a>
-      <h3 class="product-title">
-        <a href="/product-mors-lingonberry">Морс брусничный</a>
-      </h3>
-    </header>
-    <footer class="card-footer">
-      <p class="product-price">от 69 ₽</p>
-      <p class="product-description">
-        Яркий вкус брусники, витамины и лёгкая кислинка.
-      </p>
-      <a href="/product-mors-lingonberry" class="buy-button"
-        >Подробнее</a
-      >
-    </footer>
-  </article>
-
-  <article class="product-card">
-    <header>
-      <a class="product-link" href="/product-lemonade-citrus">
-        <img
-          src="/assets/drink-card2.png"
-          alt="Лимонад «Цитрус»"
-          class="product-image"
-        />
+      <a href="/catalog/juice-drinks" class="category-nav-item">
+        Сокосодержащие напитки
       </a>
-      <h3 class="product-title">
-        <a href="/product-lemonade-citrus">Лимонад «Цитрус»</a>
-      </h3>
-    </header>
-    <footer class="card-footer">
-      <p class="product-price">от 59 ₽</p>
-      <p class="product-description">
-        Натуральные цитрусовые экстракты, бодрящий вкус.
-      </p>
-      <a href="/product-lemonade-citrus" class="buy-button"
-        >Подробнее</a
-      >
-    </footer>
-  </article>
-
-  <article class="product-card">
-    <header>
-      <a class="product-link" href="/product-lemonade-apple-zero">
-        <img
-          src="/assets/drink-card3.png"
-          alt="Лимонад «Яблоко» без сахара"
-          class="product-image"
-        />
+      <a href="/catalog/party-time" class="category-nav-item">
+        Время вечеринки
       </a>
-      <h3 class="product-title">
-        <a href="/product-lemonade-apple-zero"
-          >Лимонад «Яблоко» без сахара</a
-        >
-      </h3>
-    </header>
-    <footer class="card-footer">
-      <p class="product-price">от 59 ₽</p>
-      <p class="product-description">
-        Лёгкий яблочный вкус без добавленного сахара.
-      </p>
-      <a href="/product-lemonade-apple-zero" class="buy-button"
-        >Подробнее</a
+    </nav>
+  </aside>
+
+  <!-- Основной контент с товарами -->
+  <section class="catalog-content">
+    <div class="catalog-header">
+      <h1 class="catalog-title">Каталог продукции</h1>
+
+      <!-- Блок поиска -->
+      <div class="catalog-search">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Поиск товаров..."
+          id="searchInput"
+        />
+        <button class="search-button" type="button">
+          <span class="search-icon">🔍</span>
+          Найти
+        </button>
+      </div>
+
+      <p class="catalog-subtitle">Найдено товаров:
+        <strong id="productCount">12</strong></p>
+    </div>
+
+    <div class="products-grid">
+      <article class="product-card" data-product-name="росинка негазированная">
+        <div class="product-link-wrapper">
+          <a class="product-link" href="/product/water-still">
+            <img
+              src="/assets/drink-card1.png"
+              alt="Вода «Росинка» негазированная"
+              class="product-image"
+              width="280"
+              height="320"
+            />
+          </a>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">
+            <a href="/product/water-still">«Росинка» негазированная</a>
+          </h3>
+          <p class="product-description">
+            Чистая питьевая вода без газа, многоступенчатая фильтрация.
+          </p>
+          <div class="product-footer">
+            <p class="product-price">от 39 ₽</p>
+            <a href="/product/water-still" class="buy-button">Подробнее</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-product-name="росинка газированная">
+        <div class="product-link-wrapper">
+          <a class="product-link" href="/product/water-sparkling">
+            <img
+              src="/assets/drink-card2.png"
+              alt="Вода «Росинка» газированная"
+              class="product-image"
+              width="280"
+              height="320"
+            />
+          </a>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">
+            <a href="/product/water-sparkling">«Росинка» газированная</a>
+          </h3>
+          <p class="product-description">
+            Освежающая газированная вода с сбалансированной минерализацией.
+          </p>
+          <div class="product-footer">
+            <p class="product-price">от 39 ₽</p>
+            <a href="/product/water-sparkling" class="buy-button">Подробнее</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-product-name="морс клюквенный">
+        <div class="product-link-wrapper">
+          <a class="product-link" href="/product/mors-cranberry">
+            <img
+              src="/assets/drink-card3.png"
+              alt="Морс клюквенный"
+              class="product-image"
+              width="280"
+              height="320"
+            />
+          </a>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">
+            <a href="/product/mors-cranberry">Морс клюквенный</a>
+          </h3>
+          <p class="product-description">
+            Из натурального ягодного сока, без искусственных красителей.
+          </p>
+          <div class="product-footer">
+            <p class="product-price">от 69 ₽</p>
+            <a href="/product/mors-cranberry" class="buy-button">Подробнее</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-product-name="морс брусничный">
+        <div class="product-link-wrapper">
+          <a class="product-link" href="/product/mors-lingonberry">
+            <img
+              src="/assets/drink-card1.png"
+              alt="Морс брусничный"
+              class="product-image"
+              width="280"
+              height="320"
+            />
+          </a>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">
+            <a href="/product/mors-lingonberry">Морс брусничный</a>
+          </h3>
+          <p class="product-description">
+            Яркий вкус брусники, витамины и лёгкая кислинка.
+          </p>
+          <div class="product-footer">
+            <p class="product-price">от 69 ₽</p>
+            <a href="/product/mors-lingonberry" class="buy-button">Подробнее</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-product-name="лимонад цитрус">
+        <div class="product-link-wrapper">
+          <a class="product-link" href="/product/lemonade-citrus">
+            <img
+              src="/assets/drink-card2.png"
+              alt="Лимонад «Цитрус»"
+              class="product-image"
+              width="280"
+              height="320"
+            />
+          </a>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">
+            <a href="/product/lemonade-citrus">Лимонад «Цитрус»</a>
+          </h3>
+          <p class="product-description">
+            Натуральные цитрусовые экстракты, бодрящий вкус.
+          </p>
+          <div class="product-footer">
+            <p class="product-price">от 59 ₽</p>
+            <a href="/product/lemonade-citrus" class="buy-button">Подробнее</a>
+          </div>
+        </div>
+      </article>
+
+      <article
+        class="product-card"
+        data-product-name="лимонад яблоко без сахара"
       >
-    </footer>
-  </article>
+        <div class="product-link-wrapper">
+          <a class="product-link" href="/product/lemonade-apple-zero">
+            <img
+              src="/assets/drink-card3.png"
+              alt="Лимонад «Яблоко» без сахара"
+              class="product-image"
+              width="280"
+              height="320"
+            />
+          </a>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">
+            <a href="/product/lemonade-apple-zero">Лимонад «Яблоко» без сахара</a>
+          </h3>
+          <p class="product-description">
+            Лёгкий яблочный вкус без добавленного сахара.
+          </p>
+          <div class="product-footer">
+            <p class="product-price">от 59 ₽</p>
+            <a
+              href="/product/lemonade-apple-zero"
+              class="buy-button"
+            >Подробнее</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 </div>

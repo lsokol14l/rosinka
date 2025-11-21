@@ -1,5 +1,5 @@
 /* Header Styles - Стили шапки сайта */
-header {
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@ header {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.header-container {
+.site-header .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,34 +21,34 @@ header {
   box-sizing: border-box;
 }
 
-#logo {
+.site-header #logo {
   height: 40px;
 }
 
-.main-nav {
+.site-header .main-nav {
   display: flex;
   gap: 25px;
 }
 
-.main-nav a {
+.site-header .main-nav a {
   text-decoration: none;
   font-size: 15px;
   color: #333;
   transition: color var(--transition-fast);
 }
 
-.main-nav a:hover {
+.site-header .main-nav a:hover {
   color: #007bff;
 }
 
 /* Стили для иконок соцсетей */
-.header-icons {
+.site-header .header-icons {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 24px;
 }
 
-.icon-link {
+.site-header .icon-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,12 +57,12 @@ header {
   transition: transform 0.2s ease;
 }
 
-.icon-link:hover {
+.site-header .icon-link:hover {
   transform: scale(1.1);
 }
 
-.social-icon {
-  width: 24px; /* Размер иконки */
+.site-header .social-icon {
+  width: 24px;
   height: 24px;
   object-fit: contain;
   display: block;

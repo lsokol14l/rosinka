@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <title>КОМПАНИЯ «РОСИНКА»</title>
@@ -7,7 +8,7 @@
   </head>
   <body>
     <div class="site-container">
-      <header>
+      <header class="site-header">
         <div class="header-container">
           <div class="logo">
             <a href="/">
@@ -25,7 +26,15 @@
             <a href="/contacts">Контакты</a>
           </nav>
           <div class="header-icons">
-            <a href="#" class="icon-link">VK</a>
+            <a
+              href="https://vk.com/rosinka_lip"
+              target="_blank"
+              class="icon-link"
+              title="Мы ВКонтакте"
+              rel="noopener noreferrer"
+            >
+              <img src="/assets/vk.png" alt="VK" class="social-icon" />
+            </a>
             <a
               href="https://ok.ru/group/70000002567323"
               target="_blank"
@@ -35,12 +44,11 @@
             >
               <img src="/assets/ok.png" alt="OK" class="social-icon" />
             </a>
-            <a href="#" class="icon-link">&#128269;</a>
           </div>
         </div>
       </header>
 
-      <main>
+      <main class="{{#if isCatalog}}catalog-main{{/if}}">
         {{{body}}}
       </main>
 
@@ -82,5 +90,9 @@
         </div>
       </footer>
     </div>
+
+    <!-- Подключаем JS для контактов -->
+    <script src="/js/contacts.js"></script>
+    <script src="/js/catalog.js"></script>
   </body>
 </html>
