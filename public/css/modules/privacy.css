@@ -44,6 +44,36 @@
   color: var(--text-secondary);
 }
 
+.privacy-content h2 {
+  font-size: 24px;
+  color: var(--primary-dark);
+  margin: 32px 0 16px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 8px;
+}
+
+.privacy-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.privacy-divider {
+  margin: 48px 0;
+  border: none;
+  border-top: 2px solid var(--border-light);
+}
+
+.privacy-update {
+  margin-top: 40px;
+  padding: 20px;
+  background: var(--bg-light);
+  border-left: 4px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
 .back-button {
   display: inline-block;
   margin-top: 32px;
