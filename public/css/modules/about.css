@@ -35,20 +35,6 @@
   padding-left: 50px;
 }
 
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(
-    180deg,
-    var(--primary-color),
-    var(--primary-dark)
-  );
-}
-
 .timeline-item {
   position: relative;
   margin-bottom: 50px;
