@@ -1,0 +1,86 @@
+/* Стили для страницы товара */
+.product-page {
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-page .product-card-full {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.product-page .product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+
+.product-page .product-image img {
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+.product-page .product-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-page .product-category {
+  font-size: 0.875rem; /* 14px */
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-page .product-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.product-page .product-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.product-page .product-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+}
+
+.product-page .add-to-cart-btn {
+  /* Используем стили из buttons.css */
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all var(--transition-normal) ease;
+  background: var(--gradient-primary);
+  color: var(--bg-white);
+  box-shadow: 0 4px 15px rgba(69, 190, 251, 0.3);
+  border: none; /* Убираем стандартную границу для кнопки */
+  cursor: pointer; /* Добавляем курсор-указатель */
+  align-self: flex-start; /* Выравниваем кнопку по левому краю */
+}
+
+.product-page .add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(69, 190, 251, 0.4);
+}
