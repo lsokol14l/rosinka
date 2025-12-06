@@ -1,0 +1,80 @@
+/* Responsive Design - Адаптивность */
+
+@media (max-width: 768px) {
+  /* Hero Section */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-circle {
+    width: 280px;
+    height: 280px;
+  }
+
+  /* General */
+  .section-title {
+    font-size: 28px;
+  }
+
+  .features,
+  .cta-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 28px;
+  }
+
+  /* About Page */
+  .page-title {
+    font-size: 32px;
+  }
+
+  .page-subtitle {
+    font-size: 16px;
+  }
+
+  .timeline {
+    padding-left: 40px;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .timeline-year {
+    left: -40px;
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .timeline-content {
+    margin-left: 20px;
+  }
+
+  .technology-grid,
+  .innovation-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .innovation-image {
+    order: -1;
+  }
+
+  .distribution-stats {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,44 @@
+/*
+ * Rosinka - Main CSS File
+ * Модульная структура стилей
+ * 
+ * Все стили организованы в модули для удобства поддержки.
+ * См. документацию: public/css/README.md
+ * 
+ * Структура:
+ * 1. Variables - CSS переменные (цвета, размеры, тени)
+ * 2. Base - Базовые стили (body, main)
+ * 3. Layout - Шапка и подвал
+ * 4. Components - Переиспользуемые компоненты (кнопки, карточки)
+ * 5. Pages - Стили для конкретных страниц (index, about, catalog)
+ * 6. Animations - Анимации (@keyframes)
+ * 7. Responsive - Адаптивность (media queries)
+ */
+
+/* 1. Variables */
+@import url("modules/variables.css");
+
+/* 2. Base */
+@import url("modules/base.css");
+
+/* 3. Layout */
+@import url("modules/header.css");
+@import url("modules/footer.css");
+
+/* 4. Components */
+@import url("modules/buttons.css");
+@import url("modules/cards.css");
+
+/* 5. Pages */
+@import url("modules/index.css");
+@import url("modules/about.css");
+@import url("modules/catalog.css");
+@import url("modules/contacts.css");
+@import url("modules/privacy.css");
+@import url("modules/product.css");
+
+/* 6. Animations */
+@import url("modules/animations.css");
+
+/* 7. Responsive */
+@import url("modules/responsive.css");

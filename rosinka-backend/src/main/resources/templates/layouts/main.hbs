@@ -1,0 +1,197 @@
+<html lang="ru">
+  <head>
+    <title>КОМПАНИЯ «РОСИНКА»</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="header-container">
+          <div class="logo">
+            <a href="/">
+              <img
+                id="logo"
+                src="/assets/rosinka.png"
+                alt="Логотип компании Росинка"
+              />
+            </a>
+          </div>
+          <nav class="main-nav">
+            <a href="/">Главная</a>
+            <a href="/about">О компании</a>
+            <a href="/catalog">Каталог</a>
+            <a href="/contacts">Контакты</a>
+          </nav>
+          <div class="header-icons">
+            <a
+              href="https://vk.com/rosinka_lip"
+              target="_blank"
+              class="icon-link"
+              title="Мы ВКонтакте"
+              rel="noopener noreferrer"
+            >
+              <img src="/assets/vk.png" alt="VK" class="social-icon" />
+            </a>
+            <a
+              href="https://ok.ru/group/70000002567323"
+              target="_blank"
+              class="icon-link"
+              title="Мы в Одноклассниках"
+              rel="noopener noreferrer"
+            >
+              <img src="/assets/ok.png" alt="OK" class="social-icon" />
+            </a>
+            <a href="/auth" class="icon-link" title="Войти/Зарегистрироваться">
+              <img
+                src="/assets/user.png"
+                alt="Авторизация"
+                class="social-icon"
+              />
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <div id="authModal" class="modal-overlay" style="display:none;">
+        <div class="modal-window">
+          <button class="modal-close" id="closeAuthModal">&times;</button>
+          <div class="modal-tabs">
+            <button id="loginTab" class="modal-tab active">Вход</button>
+            <button id="registerTab" class="modal-tab">Регистрация</button>
+          </div>
+
+          <!-- Форма входа -->
+          <div id="loginSection">
+            <h2>Вход в аккаунт</h2>
+            <form id="loginForm">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+              />
+              <label>Пароль</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Введите пароль"
+                required
+              />
+              <button type="submit" class="btn btn-primary">Войти</button>
+            </form>
+          </div>
+
+          <!-- Форма регистрации -->
+          <div id="registerSection" style="display:none;">
+            <h2>Регистрация</h2>
+            <form id="registerForm">
+              <label>Имя</label>
+              <input type="text" name="name" placeholder="Ваше имя" required />
+
+              <label>Телефон</label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+7 (___) ___-__-__"
+                required
+              />
+
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+              />
+
+              <label>Пароль</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Минимум 8 символов"
+                required
+                minlength="8"
+              />
+
+              <label>Подтвердите пароль</label>
+              <input
+                type="password"
+                name="confirm"
+                placeholder="Повторите пароль"
+                required
+                minlength="8"
+              />
+
+              <label class="checkbox-label">
+                <input type="checkbox" name="agree_personal" required />
+                Согласен(а) на
+                <a href="/privacy" target="_blank">обработку персональных данных</a>
+              </label>
+
+              <label class="checkbox-label">
+                <input type="checkbox" name="agree_policy" required />
+                Согласен(а) с
+                <a href="/privacy" target="_blank">политикой конфиденциальности</a>
+              </label>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+              >Зарегистрироваться</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main class="{{#if isCatalog}}catalog-main{{/if}}">
+        {{{body}}}
+      </main>
+
+      <footer>
+        <div class="footer-container">
+          <div class="footer-column">
+            <h3>О компании</h3>
+            <ul>
+              <li><a href="/about#timeline-section">История</a></li>
+              <li><a href="/about#technology-section">Производство</a></li>
+              <li><a href="/contacts">Вакансии</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Продукция</h3>
+            <ul>
+              <li><a href="/catalog">Минеральная вода</a></li>
+              <li><a href="/catalog">Лимонады</a></li>
+              <li><a href="/catalog">Холодный чай</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Контакты</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://yandex.ru/maps/-/CLSjJDND"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >📍 г. Липецк, Универсальный проезд, 11</a>
+              </li>
+              <li>📞 +7 (4742) 30-80-80</li>
+              <li>📧 root@liprosinka.ru</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p><a href="/privacy#privacy">Политика конфиденциальности</a> | КОМПАНИЯ «РОСИНКА» &copy; 2025. Все права защищены. | <a href="/privacy#agreement">Согласие на обработку персональных данных</a></p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Подключаем JS для контактов -->
+    <script src="/js/contacts.js"></script>
+    <script src="/js/catalog.js"></script>
+    <script src="/js/auth-modal.js"></script>
+  </body>
+</html>

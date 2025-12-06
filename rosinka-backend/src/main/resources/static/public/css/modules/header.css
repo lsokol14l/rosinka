@@ -1,0 +1,69 @@
+/* Header Styles - Стили шапки сайта */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.site-header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  height: var(--header-height);
+  box-sizing: border-box;
+}
+
+.site-header #logo {
+  height: 40px;
+}
+
+.site-header .main-nav {
+  display: flex;
+  gap: 25px;
+}
+
+.site-header .main-nav a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #333;
+  transition: color var(--transition-fast);
+}
+
+.site-header .main-nav a:hover {
+  color: #007bff;
+}
+
+/* Стили для иконок соцсетей */
+.site-header .header-icons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-header .icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+
+.site-header .icon-link:hover {
+  transform: scale(1.1);
+}
+
+.site-header .social-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
