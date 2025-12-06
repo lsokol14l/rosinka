@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RosinkaBackendApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(RosinkaBackendApplication.class, args);
-    }
-
+  public static void main(String[] args) {
+    SpringApplication.run(RosinkaBackendApplication.class, args);
+  }
 }
