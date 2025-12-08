@@ -10,4 +10,6 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByIsActiveTrue();
     List<Product> findByCategoryIdAndIsActiveTrue(Long categoryId);
+    List<Product> findByNameContainingIgnoreCaseAndCategoryIdAndIsActiveTrue(String name,  Long categoryId);
+    List<Product> findByNameContainingIgnoreCaseAndIsActiveTrue(String name);
 }

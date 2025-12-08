@@ -27,4 +27,12 @@ public class ProductService {
   public Optional<Product> getProductById(Long id) {
     return productRepository.findById(id);
   }
+
+  public List<Product> getProductsByNameCategoryId(String name, Long categoryId) {
+    return productRepository.findByNameContainingIgnoreCaseAndCategoryIdAndIsActiveTrue(name, categoryId);
+  }
+
+  public List<Product> getProductsByName(String name) {
+    return productRepository.findByNameContainingIgnoreCaseAndIsActiveTrue(name);
+  }
 }

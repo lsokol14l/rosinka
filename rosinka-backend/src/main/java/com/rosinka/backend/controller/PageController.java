@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,16 +31,48 @@ public class PageController {
   }
 
   @GetMapping("/catalog")
-  public String catalog(Model model) {
-    List<Product> products = productService.getAllActiveProducts();
+  public String catalog(
+      @RequestParam(required = false) String query,
+      @RequestParam(required = false) Long categoryId,
+      Model model) {
+    
+    List<Product> products;
+    
+    if (query != null && !query.trim().isEmpty()) {
+      if (categoryId != null) {
+        products = productService.getProductsByNameCategoryId(query.trim(), categoryId);
+        model.addAttribute("selectedCategoryId", categoryId);
+      } else {
+        products = productService.getProductsByName(query.trim());
+      }
+      model.addAttribute("query", query);
+    } else if (categoryId != null) {
+      products = productService.getProductsByCategoryId(categoryId);
+      model.addAttribute("selectedCategoryId", categoryId);
+    } else {
+      products = productService.getAllActiveProducts();
+    }
+    
     model.addAttribute("products", products);
     model.addAttribute("isCatalog", true);
     return "catalog";
   }
 
   @GetMapping("/catalog/{categoryId}")
-  public String catalogByCategory(@PathVariable Long categoryId, Model model) {
-    List<Product> products = productService.getProductsByCategoryId(categoryId);
+  public String catalogByCategory(
+      @PathVariable Long categoryId,
+      @RequestParam(required = false) String query,
+      Model model) {
+    
+    List<Product> products;
+    
+    if (query != null && !query.trim().isEmpty()) {
+      products = productService.getProductsByNameCategoryId(query.trim(), categoryId);
+      model.addAttribute("query", query);
+    } else {
+      products = productService.getProductsByCategoryId(categoryId);
+    }
+    
     model.addAttribute("products", products);
     model.addAttribute("isCatalog", true);
     model.addAttribute("selectedCategoryId", categoryId);
