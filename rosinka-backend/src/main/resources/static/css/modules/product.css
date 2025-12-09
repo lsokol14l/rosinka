@@ -108,17 +108,18 @@
   margin-bottom: 0.5rem;
 }
 
-.review-form input[type="text"],
+.review-form input[type='text'],
 .review-form textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   font-size: 1rem;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
-.review-form input[type="text"]:focus,
+.review-form input[type='text']:focus,
 .review-form textarea:focus {
   outline: none;
   border-color: var(--primary-color);
@@ -131,7 +132,7 @@
   direction: rtl; /* Разворачиваем звезды для правильного выделения */
 }
 
-.rating-stars input[type="radio"] {
+.rating-stars input[type='radio'] {
   display: none; /* Скрываем стандартные радиокнопки */
 }
 
@@ -145,8 +146,316 @@
   margin: 0;
 }
 
-.rating-stars input[type="radio"]:checked ~ label,
+.rating-stars input[type='radio']:checked ~ label,
 .rating-stars label:hover,
 .rating-stars label:hover ~ label {
   color: #ffc107; /* Цвет выделенной звезды */
+}
+
+/* Секция отзывов */
+.reviews-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border-color);
+}
+
+.reviews-title {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Статистика отзывов */
+.reviews-summary {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.rating-average {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stars-display {
+  font-size: 1.5rem;
+}
+
+.stars-display .star {
+  color: #ddd;
+}
+
+.stars-display .star.filled {
+  color: #ffc107;
+}
+
+.stars-display .star.half {
+  background: linear-gradient(90deg, #ffc107 50%, #ddd 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.review-count {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+/* Форма отзыва */
+.review-form-container {
+  background: var(--bg-white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+.review-form-container h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.review-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.review-form label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.review-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.review-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(69, 190, 251, 0.2);
+}
+
+.char-counter {
+  display: block;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+/* Рейтинг инпут */
+.rating-input {
+  display: flex;
+  gap: 0.25rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.rating-input .star {
+  color: #ddd;
+  transition: color var(--transition-fast);
+  user-select: none;
+}
+
+.rating-input .star.active,
+.rating-input .star.hover {
+  color: #ffc107;
+}
+
+/* Сообщения формы */
+.form-message {
+  margin-top: 1rem;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  display: none;
+}
+
+.form-message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Требование авторизации */
+.auth-required,
+.already-reviewed {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%);
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+}
+
+.auth-required a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-required a:hover {
+  text-decoration: underline;
+}
+
+.already-reviewed p {
+  color: #28a745;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Список отзывов */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.review-card {
+  background: var(--bg-white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast);
+}
+
+.review-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.review-author {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.author-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.review-date {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.review-rating {
+  font-size: 1.25rem;
+}
+
+.review-rating .star {
+  color: #ddd;
+}
+
+.review-rating .star.filled {
+  color: #ffc107;
+}
+
+.review-comment {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.loading-message,
+.no-reviews,
+.error-message {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.error-message {
+  color: #dc3545;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .reviews-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+
+  .reviews-summary {
+    padding: 1.5rem;
+  }
+
+  .rating-number {
+    font-size: 2.5rem;
+  }
+
+  .review-form-container {
+    padding: 1.5rem;
+  }
+
+  .review-card {
+    padding: 1rem;
+  }
+
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }

@@ -1,44 +1,102 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/main}">
+    layout:decorate="~{layouts/main}">
 
 <head>
     <title th:text="${product.name} + ' - КОМПАНИЯ «РОСИНКА»'">Продукт - КОМПАНИЯ «РОСИНКА»</title>
 </head>
 
 <body>
-<div layout:fragment="content">
+    <div layout:fragment="content">
 
-    <div class="product-page">
-        <div class="product-container">
-            <!-- Изображение продукта -->
-            <div class="product-image-section">
-                <img th:src="${product.imageUrl}" th:alt="${product.altText}" class="product-main-image"/>
-            </div>
-
-            <!-- Информация о продукте -->
-            <div class="product-details">
-                <h1 class="product-name" th:text="${product.name}">Название продукта</h1>
-
-                <p class="product-volume">
-                    Объём: <span th:text="${product.volume} + ' л'">1.5 л</span>
-                </p>
-
-                <p class="product-price-large">
-                    <span th:text="${product.price} + ' ₽'">100 ₽</span>
-                </p>
-
-                <div class="product-description-full">
-                    <h3>Описание</h3>
-                    <p th:text="${product.description}">Полное описание продукта</p>
+        <div class="product-page">
+            <div class="product-container">
+                <!-- Изображение продукта -->
+                <div class="product-image-section">
+                    <img th:src="${product.imageUrl}" th:alt="${product.altText}" class="product-main-image" />
                 </div>
 
-                <a href="/catalog" class="btn btn-secondary">← Вернуться в каталог</a>
+                <!-- Информация о продукте -->
+                <div class="product-details">
+                    <h1 class="product-name" th:text="${product.name}">Название продукта</h1>
+
+                    <p class="product-volume">
+                        Объём: <span th:text="${product.volume} + ' л'">1.5 л</span>
+                    </p>
+
+                    <p class="product-price-large">
+                        <span th:text="${product.price} + ' ₽'">100 ₽</span>
+                    </p>
+
+                    <div class="product-description-full">
+                        <h3>Описание</h3>
+                        <p th:text="${product.description}">Полное описание продукта</p>
+                    </div>
+
+                    <a href="/catalog" class="btn btn-secondary">← Вернуться в каталог</a>
+                </div>
+            </div>
+
+            <!-- Секция отзывов -->
+            <div class="reviews-section">
+                <h2 class="reviews-title">Отзывы покупателей</h2>
+
+                <!-- Средний рейтинг и статистика -->
+                <div class="reviews-summary" id="reviewsSummary">
+                    <div class="rating-average">
+                        <span class="rating-number" id="avgRating">0</span>
+                        <div class="stars-display" id="starsDisplay"></div>
+                        <p class="review-count" id="reviewCount">Нет отзывов</p>
+                    </div>
+                </div>
+
+                <!-- Форма добавления отзыва -->
+                <div class="review-form-container" id="reviewFormContainer">
+                    <h3>Оставить отзыв</h3>
+                    <form id="reviewForm" class="review-form">
+                        <input type="hidden" th:value="${product.id}" id="productId" />
+
+                        <div class="form-group">
+                            <label>Ваша оценка *</label>
+                            <div class="rating-input" id="ratingInput">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                            <input type="hidden" name="rating" id="ratingValue" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comment">Ваш отзыв *</label>
+                            <textarea id="comment" name="comment" rows="5"
+                                placeholder="Расскажите о вашем опыте использования продукта (минимум 10 символов)"
+                                minlength="10" maxlength="1000" required></textarea>
+                            <small class="char-counter"><span id="charCount">0</span>/1000</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                        <div id="reviewFormMessage" class="form-message"></div>
+                    </form>
+                </div>
+
+                <!-- Список отзывов -->
+                <div class="reviews-list" id="reviewsList">
+                    <p class="loading-message">Загрузка отзывов...</p>
+                </div>
             </div>
         </div>
+
     </div>
 
-</div>
+    <th:block layout:fragment="scripts">
+        <script th:inline="javascript">
+            const PRODUCT_ID = /*[[${product.id}]]*/ 0;
+        </script>
+        <script th:src="@{/js/reviews.js}"></script>
+    </th:block>
+
 </body>
 
 </html>
