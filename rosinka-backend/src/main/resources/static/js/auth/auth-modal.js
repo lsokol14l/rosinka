@@ -49,6 +49,29 @@ const AuthModal = {
       this.registerForm.addEventListener('submit', e => this.handleRegister(e))
     }
 
+    // Показ требований к паролю при вводе
+    const passwordInput = document.getElementById('registerPassword')
+    const requirementsContainer = document.getElementById(
+      'passwordRequirements'
+    )
+
+    if (passwordInput && requirementsContainer && window.PasswordValidator) {
+      passwordInput.addEventListener('input', () => {
+        window.PasswordValidator.showRequirements(
+          passwordInput.value,
+          requirementsContainer
+        )
+      })
+
+      passwordInput.addEventListener('focus', () => {
+        requirementsContainer.style.display = 'block'
+        window.PasswordValidator.showRequirements(
+          passwordInput.value,
+          requirementsContainer
+        )
+      })
+    }
+
     // Проверяем, нужно ли открыть модальное окно
     if (localStorage.getItem('openAuthModal') === 'true') {
       localStorage.removeItem('openAuthModal')
@@ -115,6 +138,15 @@ const AuthModal = {
     const password = formData.get('password')
     const confirm = formData.get('confirm')
 
+    // Валидация пароля
+    if (window.PasswordValidator) {
+      const validation = window.PasswordValidator.validate(password)
+      if (!validation.valid) {
+        this.showError(this.registerSection, validation.errors.join('<br>'))
+        return
+      }
+    }
+
     if (password !== confirm) {
       this.showError(this.registerSection, 'Пароли не совпадают')
       return
@@ -149,7 +181,7 @@ const AuthModal = {
         'color: #dc3545; background: #f8d7da; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 0.9rem;'
       section.insertBefore(errorDiv, section.querySelector('form'))
     }
-    errorDiv.textContent = message
+    errorDiv.innerHTML = message
   },
 
   clearErrors() {

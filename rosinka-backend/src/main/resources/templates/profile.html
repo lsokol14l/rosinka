@@ -125,8 +125,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Новый пароль</label>
-                                        <input type="password" name="newPassword" placeholder="••••••••" required
-                                            minlength="8" />
+                                        <input type="password" id="profileNewPassword" name="newPassword"
+                                            placeholder="••••••••" required minlength="8" maxlength="128" />
+                                        <div id="profilePasswordRequirements" class="password-requirements"></div>
                                     </div>
                                     <div id="passwordFormMessage" class="form-message"></div>
                                     <button type="submit" class="security-btn">

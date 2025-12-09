@@ -134,10 +134,10 @@ main.catalog-main {
   margin-bottom: -8px;
 }
 
-.modal-window input[type="text"],
-.modal-window input[type="email"],
-.modal-window input[type="tel"],
-.modal-window input[type="password"] {
+.modal-window input[type='text'],
+.modal-window input[type='email'],
+.modal-window input[type='tel'],
+.modal-window input[type='password'] {
   width: 100%;
   padding: 12px 16px;
   border: 2px solid var(--border-light);
@@ -192,7 +192,7 @@ main.catalog-main {
   margin-top: 4px;
 }
 
-.checkbox-label input[type="checkbox"] {
+.checkbox-label input[type='checkbox'] {
   margin-top: 3px;
   flex-shrink: 0;
   width: 16px;
@@ -208,4 +208,49 @@ main.catalog-main {
 
 .checkbox-label a:hover {
   color: var(--primary-dark);
+}
+
+/* ========== PASSWORD REQUIREMENTS ========== */
+.password-requirements {
+  margin-top: 10px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  font-size: 13px;
+  display: none;
+}
+
+.password-requirement {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  transition: all 0.2s ease;
+}
+
+.password-requirement:last-child {
+  margin-bottom: 0;
+}
+
+.requirement-status {
+  font-weight: bold;
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+}
+
+.requirement-text {
+  color: var(--text-secondary);
+}
+
+.password-requirement.valid .requirement-status {
+  color: #28a745;
+}
+
+.password-requirement.invalid .requirement-status {
+  color: #dc3545;
+}
+
+.password-requirement.neutral .requirement-status {
+  color: #6c757d;
 }

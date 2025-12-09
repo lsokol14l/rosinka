@@ -24,6 +24,9 @@ public class CustomerService {
      * Регистрация нового пользователя
      */
     public Customer register(String firstname, String email, String password, String phone) {
+        // Валидация пароля
+        validatePassword(password);
+        
         // Создаём нового пользователя
         Customer customer = new Customer();
         customer.setFirstname(firstname);
@@ -119,9 +122,54 @@ public class CustomerService {
             throw new IllegalArgumentException("Неверный старый пароль");
         }
 
+        // Валидация нового пароля
+        validatePassword(newPassword);
+
         // Устанавливаем новый пароль
         customer.setPasswordHash(hashPassword(newPassword));
         return customerRepository.save(customer);
+    }
+    
+    /**
+     * Валидация пароля по требованиям ТЗ
+     */
+    private void validatePassword(String password) {
+        if (password == null || password.length() < 8) {
+            throw new IllegalArgumentException("Пароль должен содержать не менее 8 символов");
+        }
+        
+        if (password.length() > 128) {
+            throw new IllegalArgumentException("Пароль должен содержать не более 128 символов");
+        }
+        
+        if (password.contains(" ")) {
+            throw new IllegalArgumentException("Пароль не должен содержать пробелы");
+        }
+        
+        // Проверка на наличие заглавной буквы
+        if (!password.matches(".*[A-ZА-ЯЁ].*")) {
+            throw new IllegalArgumentException("Пароль должен содержать хотя бы одну заглавную букву");
+        }
+        
+        // Проверка на наличие строчной буквы
+        if (!password.matches(".*[a-zа-яё].*")) {
+            throw new IllegalArgumentException("Пароль должен содержать хотя бы одну строчную букву");
+        }
+        
+        // Проверка на наличие цифры
+        if (!password.matches(".*[0-9].*")) {
+            throw new IllegalArgumentException("Пароль должен содержать хотя бы одну цифру");
+        }
+        
+        // Проверка на наличие специального символа
+        if (!password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?].*")) {
+            throw new IllegalArgumentException("Пароль должен содержать хотя бы один специальный символ");
+        }
+        
+        // Проверка, что пароль содержит только разрешённые символы
+        if (!password.matches("^[a-zA-Zа-яА-ЯёЁ0-9!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?]+$")) {
+            throw new IllegalArgumentException("Пароль содержит недопустимые символы");
+        }
     }
     
     /**

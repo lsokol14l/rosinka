@@ -72,10 +72,13 @@
             <input type="email" name="email" placeholder="your@email.com" required />
 
             <label>Пароль</label>
-            <input type="password" name="password" placeholder="Минимум 8 символов" required minlength="8" />
+            <input type="password" id="registerPassword" name="password" placeholder="Минимум 8 символов" required
+              minlength="8" maxlength="128" />
+            <div id="passwordRequirements" class="password-requirements"></div>
 
             <label>Подтвердите пароль</label>
-            <input type="password" name="confirm" placeholder="Повторите пароль" required minlength="8" />
+            <input type="password" name="confirm" placeholder="Повторите пароль" required minlength="8"
+              maxlength="128" />
 
             <label class="checkbox-label">
               <input type="checkbox" name="agree_personal" required />
@@ -138,6 +141,7 @@
 
   <!-- Подключаем JS модули -->
   <script th:src="@{/js/phone-mask.js}"></script>
+  <script th:src="@{/js/password-validator.js}"></script>
   <script th:src="@{/js/contacts.js}"></script>
   <script th:src="@{/js/auth/auth-service.js}"></script>
   <script th:src="@{/js/auth/auth-modal.js}"></script>

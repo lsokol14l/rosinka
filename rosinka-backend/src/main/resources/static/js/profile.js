@@ -45,6 +45,29 @@ document.addEventListener('DOMContentLoaded', function () {
     if (changePasswordForm) {
       changePasswordForm.addEventListener('submit', handleChangePassword)
     }
+
+    // Показ требований к новому паролю
+    const profileNewPassword = document.getElementById('profileNewPassword')
+    const profileRequirements = document.getElementById(
+      'profilePasswordRequirements'
+    )
+
+    if (profileNewPassword && profileRequirements && window.PasswordValidator) {
+      profileNewPassword.addEventListener('input', () => {
+        window.PasswordValidator.showRequirements(
+          profileNewPassword.value,
+          profileRequirements
+        )
+      })
+
+      profileNewPassword.addEventListener('focus', () => {
+        profileRequirements.style.display = 'block'
+        window.PasswordValidator.showRequirements(
+          profileNewPassword.value,
+          profileRequirements
+        )
+      })
+    }
   }
 
   async function checkAuth() {
@@ -108,13 +131,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const formData = new FormData(e.target)
     const newPassword = formData.get('newPassword')
 
-    if (newPassword.length < 8) {
-      showFormMessage(
-        'passwordFormMessage',
-        'Пароль должен быть не менее 8 символов',
-        'error'
-      )
-      return
+    // Валидация нового пароля
+    if (window.PasswordValidator) {
+      const validation = window.PasswordValidator.validate(newPassword)
+      if (!validation.valid) {
+        showFormMessage(
+          'passwordFormMessage',
+          validation.errors.join('<br>'),
+          'error'
+        )
+        return
+      }
     }
 
     const result = await AuthService.changePassword(
