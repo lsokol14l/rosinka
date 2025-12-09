@@ -120,9 +120,12 @@ const AuthModal = {
       return
     }
 
+    // Очищаем телефон от маски (оставляем только цифры)
+    const phone = formData.get('phone').replace(/\D/g, '')
+
     const result = await AuthService.register(
       formData.get('name'),
-      formData.get('phone'),
+      phone,
       formData.get('email'),
       password,
       confirm

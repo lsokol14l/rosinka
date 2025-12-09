@@ -24,16 +24,6 @@ public class CustomerService {
      * Регистрация нового пользователя
      */
     public Customer register(String firstname, String email, String password, String phone) {
-        // Проверяем, не занят ли email
-        if (customerRepository.existsByEmail(email)) {
-            throw new IllegalArgumentException("Пользователь с таким email уже существует");
-        }
-        
-        // Проверяем, не занят ли телефон
-        if (customerRepository.existsByPhone(phone)) {
-            throw new IllegalArgumentException("Пользователь с таким телефоном уже существует");
-        }
-        
         // Создаём нового пользователя
         Customer customer = new Customer();
         customer.setFirstname(firstname);
@@ -41,7 +31,17 @@ public class CustomerService {
         customer.setPasswordHash(hashPassword(password));
         customer.setPhone(phone);
         
-        return customerRepository.save(customer);
+        try {
+            return customerRepository.save(customer);
+        } catch (Exception e) {
+            // Обрабатываем ошибки уникальности на уровне БД
+            if (e.getMessage() != null && e.getMessage().contains("email")) {
+                throw new IllegalArgumentException("Пользователь с таким email уже существует");
+            } else if (e.getMessage() != null && e.getMessage().contains("phone")) {
+                throw new IllegalArgumentException("Пользователь с таким телефоном уже существует");
+            }
+            throw new IllegalArgumentException("Ошибка при регистрации пользователя");
+        }
     }
     
     /**
