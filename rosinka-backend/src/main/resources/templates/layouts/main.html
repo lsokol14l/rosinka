@@ -136,9 +136,11 @@
     </footer>
   </div>
 
-  <!-- Подключаем JS для контактов -->
+  <!-- Подключаем JS модули -->
   <script th:src="@{/js/contacts.js}"></script>
-  <script th:src="@{/js/auth-modal.js}"></script>
+  <script th:src="@{/js/auth/auth-service.js}"></script>
+  <script th:src="@{/js/auth/auth-modal.js}"></script>
+  <script th:src="@{/js/auth/auth-init.js}"></script>
 
   <!-- Дополнительные скрипты из дочерних шаблонов -->
   <th:block layout:fragment="scripts"></th:block>

@@ -14,13 +14,15 @@ public class CustomerDTO {
     private String firstname;
     private String email;
     private String phone;
+    private String avatarUrl;
     
     public static CustomerDTO fromEntity(Customer customer) {
         return new CustomerDTO(
             customer.getId(),
             customer.getFirstname(),
             customer.getEmail(),
-            customer.getPhone()
+            customer.getPhone(),
+            customer.getAvatarUrl()
         );
     }
 }

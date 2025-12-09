@@ -73,6 +73,56 @@ public class CustomerService {
     public Optional<Customer> getCustomerByEmail(String email) {
         return customerRepository.findByEmail(email.toLowerCase());
     }
+
+    /**
+     * Обновить аватар пользователя
+     */
+    public Customer updateAvatar(Long customerId, String avatarUrl) {
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new IllegalArgumentException("Пользователь не найден"));
+        customer.setAvatarUrl(avatarUrl);
+        return customerRepository.save(customer);
+    }
+
+    /**
+     * Сменить email пользователя
+     */
+    public Customer changeEmail(Long customerId, String newEmail, String currentPassword) {
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new IllegalArgumentException("Пользователь не найден"));
+
+        // Проверяем текущий пароль
+        if (!verifyPassword(currentPassword, customer.getPasswordHash())) {
+            throw new IllegalArgumentException("Неверный текущий пароль");
+        }
+
+        // Проверяем, не занят ли новый email
+        String normalizedEmail = newEmail.toLowerCase();
+        if (customerRepository.existsByEmail(normalizedEmail) && 
+            !normalizedEmail.equals(customer.getEmail())) {
+            throw new IllegalArgumentException("Этот email уже используется");
+        }
+
+        customer.setEmail(normalizedEmail);
+        return customerRepository.save(customer);
+    }
+
+    /**
+     * Сменить пароль пользователя
+     */
+    public Customer changePassword(Long customerId, String oldPassword, String newPassword) {
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new IllegalArgumentException("Пользователь не найден"));
+
+        // Проверяем старый пароль
+        if (!verifyPassword(oldPassword, customer.getPasswordHash())) {
+            throw new IllegalArgumentException("Неверный старый пароль");
+        }
+
+        // Устанавливаем новый пароль
+        customer.setPasswordHash(hashPassword(newPassword));
+        return customerRepository.save(customer);
+    }
     
     /**
      * Хеширование пароля с солью (SHA-256)

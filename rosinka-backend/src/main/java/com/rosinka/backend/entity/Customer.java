@@ -38,4 +38,7 @@ public class Customer {
     @Pattern(regexp = "^\\+?[0-9\\s\\-\\(\\)]{10,20}$", message = "Некорректный формат телефона")
     @Column(name = "phone", nullable = false, length = 20)
     private String phone;
+
+    @Column(name = "avatar_url", length = 500)
+    private String avatarUrl;
 }
