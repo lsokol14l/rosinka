@@ -100,4 +100,9 @@ public class PageController {
   public String privacy(Model model) {
     return "privacy";
   }
+
+  @GetMapping("/profile")
+  public String profile(Model model) {
+    return "profile";
+  }
 }

@@ -31,7 +31,7 @@
             rel="noopener noreferrer">
             <img th:src="@{/assets/ok.png}" alt="OK" class="social-icon" />
           </a>
-          <a href="/auth" class="icon-link" title="Войти/Зарегистрироваться">
+          <a href="#" class="icon-link" id="authProfileLink" title="Войти/Зарегистрироваться">
             <img th:src="@{/assets/user.png}" alt="Авторизация" class="social-icon" />
           </a>
         </div>
@@ -138,8 +138,10 @@
 
   <!-- Подключаем JS для контактов -->
   <script th:src="@{/js/contacts.js}"></script>
-  <script th:src="@{/js/catalog.js}"></script>
   <script th:src="@{/js/auth-modal.js}"></script>
+
+  <!-- Дополнительные скрипты из дочерних шаблонов -->
+  <th:block layout:fragment="scripts"></th:block>
 </body>
 
 </html>
