@@ -14,7 +14,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // Раздаём загруженные аватары
+        String location = uploadDir.endsWith("/") ? uploadDir : uploadDir + "/";
         registry.addResourceHandler("/uploads/avatars/**")
-                .addResourceLocations("file:" + uploadDir + "/");
+                .addResourceLocations("file:" + location);
     }
 }
