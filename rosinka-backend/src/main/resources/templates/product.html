@@ -11,9 +11,34 @@
 
         <div class="product-page">
             <div class="product-container">
-                <!-- Изображение продукта -->
+                <!-- Слайдер товаров категории -->
                 <div class="product-image-section">
-                    <img th:src="${product.imageUrl}" th:alt="${product.altText}" class="product-main-image" />
+                    <div class="product-slider">
+                        <div class="product-slider-wrapper">
+                            <button class="product-slider-btn product-slider-btn-prev"
+                                aria-label="Предыдущий товар">‹</button>
+                            <div class="product-slider-container">
+                                <div class="product-slider-track">
+                                    <!-- Текущий товар -->
+                                    <div class="product-slider-slide active">
+                                        <img th:src="${product.imageUrl}" th:alt="${product.altText}"
+                                            class="product-main-image" />
+                                    </div>
+                                    <!-- Другие товары категории -->
+                                    <th:block th:each="catProduct : ${categoryProducts}"
+                                        th:if="${catProduct.id != product.id}">
+                                        <div class="product-slider-slide">
+                                            <img th:src="${catProduct.imageUrl}" th:alt="${catProduct.altText}"
+                                                class="product-main-image" />
+                                        </div>
+                                    </th:block>
+                                </div>
+                            </div>
+                            <button class="product-slider-btn product-slider-btn-next"
+                                aria-label="Следующий товар">›</button>
+                        </div>
+                        <div class="product-slider-dots"></div>
+                    </div>
                 </div>
 
                 <!-- Информация о продукте -->
@@ -93,7 +118,9 @@
     <th:block layout:fragment="scripts">
         <script th:inline="javascript">
             const PRODUCT_ID = /*[[${product.id}]]*/ 0;
+            const CATEGORY_PRODUCTS = /*[[${categoryProducts}]]*/[];
         </script>
+        <script th:src="@{/js/product-slider.js}"></script>
         <script th:src="@{/js/reviews.js}"></script>
     </th:block>
 

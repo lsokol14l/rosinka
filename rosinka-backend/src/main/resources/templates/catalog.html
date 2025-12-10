@@ -69,6 +69,30 @@
                         ✕ Сбросить
                     </a>
                 </form>
+
+                <!-- Слайдер товаров -->
+                <div class="catalog-slider" th:if="${!#lists.isEmpty(products)}">
+                    <h2 class="slider-title">Популярное</h2>
+                    <div class="slider-wrapper">
+                        <button class="slider-btn slider-btn-prev" aria-label="Предыдущий слайд">‹</button>
+                        <div class="slider-container">
+                            <div class="slider-track">
+                                <div th:each="product : ${products}" class="slider-card">
+                                    <a th:href="@{/product/{id}(id=${product.id})}" class="slider-card-link">
+                                        <img th:src="${product.imageUrl}" th:alt="${product.altText}"
+                                            class="slider-card-image" />
+                                        <div class="slider-card-info">
+                                            <h4 class="slider-card-title" th:text="${product.name}">Название</h4>
+                                            <p class="slider-card-price" th:text="${product.price} + ' ₽'">100 ₽</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-btn slider-btn-next" aria-label="Следующий слайд">›</button>
+                    </div>
+                </div>
+
                 <div class="products-grid">
                     <article th:each="product : ${products}" class="product-card">
                         <div class="product-link-wrapper">
@@ -100,6 +124,10 @@
         </div>
 
     </div>
+
+    <th:block layout:fragment="scripts">
+        <script th:src="@{/js/catalog-slider.js}"></script>
+    </th:block>
 </body>
 
 </html>

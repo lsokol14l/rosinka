@@ -459,3 +459,125 @@
     font-size: 1rem;
   }
 }
+
+/* ========== PRODUCT SLIDER ========== */
+.product-slider {
+  width: 100%;
+  position: relative;
+}
+
+.product-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-slider-container {
+  flex: 1;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background: #f8f9fa;
+}
+
+.product-slider-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-slider-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-slider-slide .product-main-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+}
+
+.product-slider-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.product-slider-btn:hover:not(:disabled) {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(69, 190, 251, 0.5);
+}
+
+.product-slider-btn:disabled {
+  cursor: not-allowed;
+  border-color: #ddd;
+  color: #ddd;
+  opacity: 0.3;
+}
+
+.product-slider-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.product-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.slider-dot:hover {
+  background: #aaa;
+  transform: scale(1.2);
+}
+
+.slider-dot.active {
+  background: var(--primary-color);
+  width: 30px;
+  border-radius: 6px;
+}
+
+/* Адаптивность слайдера */
+@media (max-width: 768px) {
+  .product-slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .product-slider-slide .product-main-image {
+    max-height: 350px;
+  }
+}
