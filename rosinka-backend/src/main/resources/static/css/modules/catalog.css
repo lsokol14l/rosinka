@@ -149,6 +149,35 @@
   font-size: 18px;
 }
 
+.search-reset-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 20px;
+  background: #f5f5f5;
+  color: var(--text-secondary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.search-reset-button:hover {
+  background: #ff4444;
+  color: white;
+  border-color: #ff4444;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+}
+
+.search-reset-button:active {
+  transform: translateY(0);
+}
+
 /* ========== PRODUCTS GRID ========== */
 .products-grid {
   display: grid;

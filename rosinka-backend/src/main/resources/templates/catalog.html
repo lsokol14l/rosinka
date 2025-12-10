@@ -61,6 +61,13 @@
                         <span class="search-icon">🔍</span>
                         Найти
                     </button>
+
+                    <!-- Кнопка сброса поиска (показывается только при активном поиске) -->
+                    <a th:if="${query != null and !query.isEmpty()}"
+                        th:href="@{/catalog(categoryId=${selectedCategoryId})}" class="search-reset-button"
+                        title="Сбросить поиск">
+                        ✕ Сбросить
+                    </a>
                 </form>
                 <div class="products-grid">
                     <article th:each="product : ${products}" class="product-card">
