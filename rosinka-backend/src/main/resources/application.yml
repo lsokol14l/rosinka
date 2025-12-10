@@ -2,14 +2,14 @@ spring:
   application:
     name: rosinka-backend
   datasource:
-    url: jdbc:postgresql://localhost:5432/rosinka
-    username: postgres
-    password: Cokolsuper12
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/rosinka}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:Cokolsuper12}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    show-sql: ${SPRING_JPA_SHOW_SQL:true}
     properties:
       hibernate:
         format_sql: true
@@ -18,7 +18,7 @@ spring:
     restart:
       enabled: true
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
 logging:
   level:
     com.rosinka.backend: DEBUG
