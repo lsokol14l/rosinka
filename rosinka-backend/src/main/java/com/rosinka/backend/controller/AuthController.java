@@ -164,8 +164,10 @@ public class AuthController {
         try {
             // Создаём директорию если не существует
             Path uploadPath = Paths.get(uploadDir);
+            System.out.println("Upload directory: " + uploadPath.toAbsolutePath());
             if (!Files.exists(uploadPath)) {
                 Files.createDirectories(uploadPath);
+                System.out.println("Created directory: " + uploadPath.toAbsolutePath());
             }
 
             // Генерируем уникальное имя файла
@@ -178,9 +180,11 @@ public class AuthController {
             // Сохраняем файл
             Path filePath = uploadPath.resolve(filename);
             Files.write(filePath, file.getBytes());
+            System.out.println("File saved to: " + filePath.toAbsolutePath());
 
             // Обновляем URL в базе данных
             String avatarUrl = "/uploads/" + filename;
+            System.out.println("Avatar URL: " + avatarUrl);
             Customer customer = customerService.updateAvatar(customerId, avatarUrl);
 
             CustomerDTO customerDTO = CustomerDTO.fromEntity(customer);
