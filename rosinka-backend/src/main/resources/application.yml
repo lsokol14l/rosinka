@@ -2,9 +2,9 @@ spring:
   application:
     name: rosinka-backend
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/rosinka}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://193.38.235.104:54320/postgres}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_PASSWORD:Cokolsuper12}
+    password: ${SPRING_DATASOURCE_PASSWORD:M8mGNW6NTlOjWpJMFpFs33nGpEWKCSr2z50JV3b5P0qUdWVduYaygCfHMGHuWla1}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
