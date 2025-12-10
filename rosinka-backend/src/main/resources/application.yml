@@ -21,7 +21,7 @@ server:
   port: ${SERVER_PORT:8080}
 app:
   upload:
-    dir: ${APP_UPLOAD_DIR:uploads/avatars}
+    dir: ${APP_UPLOAD_DIR:uploads}
 logging:
   level:
     com.rosinka.backend: DEBUG

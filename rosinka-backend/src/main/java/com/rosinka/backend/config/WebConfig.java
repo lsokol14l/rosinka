@@ -8,14 +8,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Value("${app.upload.dir:/app/uploads/avatars}")
+    @Value("${app.upload.dir:/app/uploads}")
     private String uploadDir;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // Раздаём загруженные аватары
+        // Раздаём загруженные файлы
         String location = uploadDir.endsWith("/") ? uploadDir : uploadDir + "/";
-        registry.addResourceHandler("/uploads/avatars/**")
+        registry.addResourceHandler("/uploads/**")
                 .addResourceLocations("file:" + location);
     }
 }

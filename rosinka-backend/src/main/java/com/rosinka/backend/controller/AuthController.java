@@ -25,7 +25,7 @@ public class AuthController {
 
     private final CustomerService customerService;
     
-    @Value("${app.upload.dir:/app/uploads/avatars}")
+    @Value("${app.upload.dir:/app/uploads}")
     private String uploadDir;
 
     public AuthController(CustomerService customerService) {
@@ -180,7 +180,7 @@ public class AuthController {
             Files.write(filePath, file.getBytes());
 
             // Обновляем URL в базе данных
-            String avatarUrl = "/uploads/avatars/" + filename;
+            String avatarUrl = "/uploads/" + filename;
             Customer customer = customerService.updateAvatar(customerId, avatarUrl);
 
             CustomerDTO customerDTO = CustomerDTO.fromEntity(customer);
