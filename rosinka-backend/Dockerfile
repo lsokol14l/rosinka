@@ -2,13 +2,9 @@
 FROM maven:3.9-eclipse-temurin-17-alpine AS build
 WORKDIR /app
 
-# Копируем файлы Maven
+# Копируем pom.xml и загружаем зависимости (для кэширования слоя)
 COPY pom.xml .
-COPY mvnw .
-COPY .mvn .mvn
-
-# Загружаем зависимости
-RUN mvn dependency:go-offline -B
+RUN mvn dependency:go-offline -B || true
 
 # Копируем исходный код
 COPY src ./src
