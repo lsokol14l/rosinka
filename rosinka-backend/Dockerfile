@@ -16,6 +16,9 @@ WORKDIR /app
 # Create user
 RUN addgroup -S spring && adduser -S spring -G spring
 
+# Create uploads directory with proper permissions
+RUN mkdir -p /app/uploads && chown -R spring:spring /app/uploads
+
 # Copy jar
 COPY --from=build --chown=spring:spring /app/target/*.jar app.jar
 
