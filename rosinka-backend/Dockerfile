@@ -1,30 +1,29 @@
-# Используем многоэтапную сборку для оптимизации размера образа
+# Build stage
 FROM maven:3.9-eclipse-temurin-17-alpine AS build
 WORKDIR /app
 
-# Копируем pom.xml и загружаем зависимости (для кэширования слоя)
+# Copy source
 COPY pom.xml .
-RUN mvn dependency:go-offline -B || true
-
-# Копируем исходный код
 COPY src ./src
 
-# Собираем приложение
-RUN mvn clean package -DskipTests
+# Build
+RUN mvn clean package -DskipTests -q
 
-# Финальный образ
+# Runtime stage
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
-# Создаем пользователя для безопасности
+# Create user
 RUN addgroup -S spring && adduser -S spring -G spring
+
+# Copy jar
+COPY --from=build --chown=spring:spring /app/target/*.jar app.jar
+
+# Switch to non-root user
 USER spring:spring
 
-# Копируем jar из build stage
-COPY --from=build /app/target/*.jar app.jar
-
-# Открываем порт приложения
+# Port
 EXPOSE 8081
 
-# Запускаем приложение
+# Run
 ENTRYPOINT ["java", "-jar", "app.jar"]
