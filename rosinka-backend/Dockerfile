@@ -13,20 +13,14 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
-# Create user
-RUN addgroup -S spring && adduser -S spring -G spring
-
-# Create uploads directory with proper permissions
-RUN mkdir -p /app/uploads && chown -R spring:spring /app/uploads
+# Create uploads directory
+RUN mkdir -p /app/uploads
 
 # Copy jar
-COPY --from=build --chown=spring:spring /app/target/*.jar app.jar
-
-# Switch to non-root user
-USER spring:spring
+COPY --from=build /app/target/*.jar app.jar
 
 # Port
 EXPOSE 8081
 
-# Run
+# Run as root (no USER directive)
 ENTRYPOINT ["java", "-jar", "app.jar"]
