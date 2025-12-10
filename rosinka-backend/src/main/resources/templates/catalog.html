@@ -109,9 +109,18 @@
                             <p class="product-description" th:text="${product.shortDescription}">
                                 Описание продукта
                             </p>
-                            <p class="product-price">
-                                <span th:text="${product.price} + ' ₽'">100 ₽</span>
-                            </p>
+                            <div class="product-footer">
+                                <p class="product-price">
+                                    <span th:text="${product.price} + ' ₽'">100 ₽</span>
+                                </p>
+                                <button class="add-to-cart-btn btn-small" th:attr="data-product-id=${product.id},
+                                             data-product-name=${product.name},
+                                             data-product-price=${product.price},
+                                             data-product-image=${product.imageUrl},
+                                             data-product-volume=${product.volume}">
+                                    В корзину
+                                </button>
+                            </div>
                         </div>
                     </article>
                 </div>

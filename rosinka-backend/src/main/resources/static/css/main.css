@@ -16,29 +16,30 @@
  */
 
 /* 1. Variables */
-@import url("modules/variables.css");
+@import url('modules/variables.css');
 
 /* 2. Base */
-@import url("modules/base.css");
+@import url('modules/base.css');
 
 /* 3. Layout */
-@import url("modules/header.css");
-@import url("modules/footer.css");
+@import url('modules/header.css');
+@import url('modules/footer.css');
 
 /* 4. Components */
-@import url("modules/buttons.css");
-@import url("modules/cards.css");
+@import url('modules/buttons.css');
+@import url('modules/cards.css');
+@import url('modules/cart.css');
 
 /* 5. Pages */
-@import url("modules/index.css");
-@import url("modules/about.css");
-@import url("modules/catalog.css");
-@import url("modules/contacts.css");
-@import url("modules/privacy.css");
-@import url("modules/product.css");
+@import url('modules/index.css');
+@import url('modules/about.css');
+@import url('modules/catalog.css');
+@import url('modules/contacts.css');
+@import url('modules/privacy.css');
+@import url('modules/product.css');
 
 /* 6. Animations */
-@import url("modules/animations.css");
+@import url('modules/animations.css');
 
 /* 7. Responsive */
-@import url("modules/responsive.css");
+@import url('modules/responsive.css');

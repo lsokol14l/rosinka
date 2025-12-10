@@ -58,7 +58,16 @@
                         <p th:text="${product.description}">Полное описание продукта</p>
                     </div>
 
-                    <a href="/catalog" class="btn btn-secondary">← Вернуться в каталог</a>
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn btn-primary-large" th:attr="data-product-id=${product.id},
+                                     data-product-name=${product.name},
+                                     data-product-price=${product.price},
+                                     data-product-image=${product.imageUrl},
+                                     data-product-volume=${product.volume}">
+                            Добавить в корзину
+                        </button>
+                        <a href="/catalog" class="btn btn-secondary">← Вернуться в каталог</a>
+                    </div>
                 </div>
             </div>
 
