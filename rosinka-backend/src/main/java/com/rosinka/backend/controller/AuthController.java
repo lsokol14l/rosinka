@@ -25,7 +25,7 @@ public class AuthController {
 
     private final CustomerService customerService;
     
-    @Value("${app.upload.dir:uploads/avatars}")
+    @Value("${app.upload.dir:/app/uploads/avatars}")
     private String uploadDir;
 
     public AuthController(CustomerService customerService) {
