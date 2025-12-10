@@ -164,7 +164,11 @@ public class AuthController {
         try {
             // Создаём директорию если не существует
             Path uploadPath = Paths.get(uploadDir);
+            System.out.println("=== AVATAR UPLOAD DEBUG ===");
             System.out.println("Upload directory: " + uploadPath.toAbsolutePath());
+            System.out.println("Directory exists: " + Files.exists(uploadPath));
+            System.out.println("Directory writable: " + Files.isWritable(uploadPath));
+            
             if (!Files.exists(uploadPath)) {
                 Files.createDirectories(uploadPath);
                 System.out.println("Created directory: " + uploadPath.toAbsolutePath());
@@ -172,28 +176,41 @@ public class AuthController {
 
             // Генерируем уникальное имя файла
             String originalFilename = file.getOriginalFilename();
+            System.out.println("Original filename: " + originalFilename);
             String extension = originalFilename != null && originalFilename.contains(".") 
                     ? originalFilename.substring(originalFilename.lastIndexOf(".")) 
                     : ".jpg";
             String filename = customerId + "_" + UUID.randomUUID().toString() + extension;
+            System.out.println("Generated filename: " + filename);
 
             // Сохраняем файл
             Path filePath = uploadPath.resolve(filename);
+            System.out.println("Full file path: " + filePath.toAbsolutePath());
             Files.write(filePath, file.getBytes());
-            System.out.println("File saved to: " + filePath.toAbsolutePath());
+            System.out.println("✓ File saved successfully");
 
             // Обновляем URL в базе данных
             String avatarUrl = "/uploads/" + filename;
-            System.out.println("Avatar URL: " + avatarUrl);
+            System.out.println("Avatar URL for DB: " + avatarUrl);
             Customer customer = customerService.updateAvatar(customerId, avatarUrl);
+            System.out.println("✓ DB updated successfully");
+            System.out.println("=== UPLOAD COMPLETE ===");
 
             CustomerDTO customerDTO = CustomerDTO.fromEntity(customer);
             return ResponseEntity.ok(AuthResponse.success("Аватар успешно загружен", customerDTO));
 
         } catch (IOException e) {
-            return ResponseEntity.badRequest().body(AuthResponse.error("Ошибка при сохранении файла"));
+            System.err.println("✗ IOException: " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(AuthResponse.error("Ошибка при сохранении файла: " + e.getMessage()));
         } catch (IllegalArgumentException e) {
+            System.err.println("✗ IllegalArgumentException: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.badRequest().body(AuthResponse.error(e.getMessage()));
+        } catch (Exception e) {
+            System.err.println("✗ Unexpected error: " + e.getMessage());
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(AuthResponse.error("Неожиданная ошибка: " + e.getMessage()));
         }
     }
 
